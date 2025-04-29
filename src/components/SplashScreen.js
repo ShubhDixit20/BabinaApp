@@ -5,7 +5,7 @@ export default function SplashScreen({ navigation }) {
   useEffect(() => {
     setTimeout(() => {
       navigation.replace('GoalsScreen');
-    }, 3000); // Splash screen duration
+    }, 500); // Splash screen duration
   }, [navigation]);
 
   return (

@@ -3,6 +3,7 @@ import { View, Text, StyleSheet, Button, Alert, ScrollView } from 'react-native'
 import Slider from '@react-native-community/slider';
 import { LineChart } from 'react-native-chart-kit';
 import { Dimensions } from 'react-native';
+import { CircleArrowLeft, UserCircle } from 'lucide-react-native';
 
 const PainTracker = () => {
   const [painValue, setPainValue] = useState(0);
@@ -32,113 +33,113 @@ const PainTracker = () => {
   };
 
   return (
-    <View style={styles.mainContainer}>
-      {/* Header */}
-      <View style={styles.headerContainer}>
-        <Text style={styles.headerText}>PAIN TRACKER</Text>
+    <View style={{ flex: 1, backgroundColor: '#FFFDF6' }}>
+      <View style={{ flex: 0, flexDirection: 'row', justifyContent: 'space-between', marginTop: 20, marginLeft: 15, marginRight: 15 }}>
+        <CircleArrowLeft color="black" size={40} />
+        <View style={{ flex: 1, alignItems: 'center', backgroundColor: 'transparent', justifyContent: 'center' }}>
+          <Text style={{ color: 'green', fontSize: 20 }}>Pain Tracker</Text>
+        </View>
+        <UserCircle color="black" size={40} />
       </View>
 
-      {/* Main Content */}
-      <ScrollView style={styles.container}>
-        <View style={styles.instructionsWrapper}>
-          <View style={styles.instructionContainer}>
-            <Text style={styles.instructionHeader}>Pain Severity Scale</Text>
-            <Text style={styles.instructionText}>
-              - <Text style={{ fontWeight: 'bold' }}>0:</Text> No pain{'\n'}
-              - <Text style={{ fontWeight: 'bold' }}>1-3:</Text> Mild pain{'\n'}
-              - <Text style={{ fontWeight: 'bold' }}>4-6:</Text> Moderate pain{'\n'}
-              - <Text style={{ fontWeight: 'bold' }}>7-9:</Text> Severe pain{'\n'}
-              - <Text style={{ fontWeight: 'bold' }}>10:</Text> Worst possible pain
-            </Text>
-          </View>
+      <View style={{
+        flex: 1, flexDirection: 'column', backgroundColor: '#FFFDF6', borderBottomEndRadius: 20,
+        borderBottomStartRadius: 20
+      }}>
+        <Text style={styles.instructionHeader}>Pain Severity Scale</Text>
+        <Text style={styles.instructionText}>
+          - <Text style={{ fontWeight: 'bold' }}>0:</Text> No pain{'\n'}
+          - <Text style={{ fontWeight: 'bold' }}>1-3:</Text> Mild pain{'\n'}
+          - <Text style={{ fontWeight: 'bold' }}>4-6:</Text> Moderate pain{'\n'}
+          - <Text style={{ fontWeight: 'bold' }}>7-9:</Text> Severe pain{'\n'}
+          - <Text style={{ fontWeight: 'bold' }}>10:</Text> Worst possible pain
+        </Text>
+      </View>
 
-          <View style={styles.instructionContainer}>
-            <Text style={styles.instructionHeader}>दर्द का पैमाना (Aana Scale)</Text>
-            <Text style={styles.instructionText}>
-              - <Text style={{ fontWeight: 'bold' }}>4 आना:</Text> हल्का दर्द{'\n'}
-              - <Text style={{ fontWeight: 'bold' }}>8 आना:</Text> मध्यम दर्द{'\n'}
-              - <Text style={{ fontWeight: 'bold' }}>12 आना:</Text> तेज़ दर्द{'\n'}
-              - <Text style={{ fontWeight: 'bold' }}>16 आना:</Text> अत्यधिक दर्द{'\n'}
-            </Text>
-          </View>
+      <View style={styles.instructionContainer}>
+        <Text style={styles.instructionHeader}>दर्द का पैमाना (Aana Scale)</Text>
+        <Text style={styles.instructionText}>
+          - <Text style={{ fontWeight: 'bold' }}>4 आना:</Text> हल्का दर्द{'\n'}
+          - <Text style={{ fontWeight: 'bold' }}>8 आना:</Text> मध्यम दर्द{'\n'}
+          - <Text style={{ fontWeight: 'bold' }}>12 आना:</Text> तेज़ दर्द{'\n'}
+          - <Text style={{ fontWeight: 'bold' }}>16 आना:</Text> अत्यधिक दर्द{'\n'}
+        </Text>
+      </View>
+
+      <View style={styles.sliderContainer}>
+        <View style={styles.sliderWrapper}>
+          <Slider
+            style={[styles.slider, { position: 'absolute', zIndex: 1 }]} // Slider with higher z-index
+            minimumValue={0}
+            maximumValue={10}
+            step={1}
+            value={painValue}
+            onValueChange={(value) => setPainValue(value)}
+            minimumTrackTintColor="#4BC6B9"
+            maximumTrackTintColor="#D3D3D3"
+            thumbTintColor="#1D9BF0"
+          />
+          <Text
+            style={[
+              styles.emoji,
+              {
+                left: `${(painValue / 10) * 100}%`,
+                transform: [{ translateX: -12 }],
+              },
+            ]}
+          >
+            {getEmoji(painValue)}
+          </Text>
         </View>
+      </View>
 
-        <Text style={styles.label}>Select your pain level:</Text>
-        <View style={styles.sliderContainer}>
-          <View style={styles.sliderWrapper}>
-            <Slider
-              style={[styles.slider, { position: 'absolute', zIndex: 1 }]} // Slider with higher z-index
-              minimumValue={0}
-              maximumValue={10}
-              step={1}
-              value={painValue}
-              onValueChange={(value) => setPainValue(value)}
-              minimumTrackTintColor="#4BC6B9"
-              maximumTrackTintColor="#D3D3D3"
-              thumbTintColor="#1D9BF0"
-            />
-            <Text
-              style={[
-                styles.emoji,
-                {
-                  left: `${(painValue / 10) * 100}%`, // Position emoji dynamically based on slider value
-                  transform: [{ translateX: -12 }], // Center emoji on track
+      <Text style={{ fontWeight: 'bold', fontSize: 20 }}>Pain Level: {painValue}</Text>
+
+      <View style={styles.buttonContainer} onLayout={handleLayout}>
+        <Button title="Confirm" onPress={confirmValue} color="#1D9BF0" />
+      </View>
+
+      {dataPoints.length > 0 && (
+        <View style={styles.chartContainer}>
+          <Text style={styles.chartLabel}>Pain Level Over Time</Text>
+          <ScrollView horizontal showsHorizontalScrollIndicator={true}>
+            <LineChart
+              data={{
+                labels: timestamps,
+                datasets: [
+                  {
+                    data: dataPoints,
+                    strokeWidth: 2,
+                    color: (opacity = 1) => `rgba(29, 155, 240, ${opacity})`,
+                  },
+                ],
+              }}
+              width={Math.max(Dimensions.get('window').width, dataPoints.length * 60)} // Dynamic width
+              height={300}
+              chartConfig={{
+                backgroundColor: '#E3F2F9',
+                backgroundGradientFrom: '#E3F2F9',
+                backgroundGradientTo: '#4BC6B9',
+                decimalPlaces: 0,
+                color: (opacity = 1) => `rgba(255, 255, 255, ${opacity})`,
+                labelColor: (opacity = 1) => `rgba(0, 0, 0, ${opacity})`,
+                style: {
+                  borderRadius: 16,
                 },
-              ]}
-            >
-              {getEmoji(painValue)}
-            </Text>
-          </View>
+                propsForDots: {
+                  r: '6',
+                  strokeWidth: '2',
+                  stroke: '#4BC6B9',
+                },
+              }}
+              bezier
+              style={styles.chart}
+              verticalLabelRotation={-50}
+            />
+          </ScrollView>
         </View>
-
-        <Text style={styles.valueText}>Pain Level: {painValue}</Text>
-
-        <View style={styles.buttonContainer} onLayout={handleLayout}>
-          <Button title="Confirm" onPress={confirmValue} color="#1D9BF0" />
-        </View>
-
-        {dataPoints.length > 0 && (
-          <View style={styles.chartContainer}>
-            <Text style={styles.chartLabel}>Pain Level Over Time</Text>
-            <ScrollView horizontal showsHorizontalScrollIndicator={true}>
-              <LineChart
-                data={{
-                  labels: timestamps,
-                  datasets: [
-                    {
-                      data: dataPoints,
-                      strokeWidth: 2,
-                      color: (opacity = 1) => `rgba(29, 155, 240, ${opacity})`,
-                    },
-                  ],
-                }}
-                width={Math.max(Dimensions.get('window').width, dataPoints.length * 60)} // Dynamic width
-                height={300}
-                chartConfig={{
-                  backgroundColor: '#E3F2F9',
-                  backgroundGradientFrom: '#E3F2F9',
-                  backgroundGradientTo: '#4BC6B9',
-                  decimalPlaces: 0,
-                  color: (opacity = 1) => `rgba(255, 255, 255, ${opacity})`,
-                  labelColor: (opacity = 1) => `rgba(0, 0, 0, ${opacity})`,
-                  style: {
-                    borderRadius: 16,
-                  },
-                  propsForDots: {
-                    r: '6',
-                    strokeWidth: '2',
-                    stroke: '#4BC6B9',
-                  },
-                }}
-                bezier
-                style={styles.chart}
-                verticalLabelRotation={-50}
-              />
-            </ScrollView>
-          </View>
-        )};
-      </ScrollView>
-    </View>
+      )};
+    </View >
   );
 };
 
