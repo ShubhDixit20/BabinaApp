@@ -47,7 +47,6 @@ const ExerciseVideo = () => {
 
     return (
         <ScrollView contentContainerStyle={styles.container}>
-            {/* Video Display */}
             {exercise?.video_url ? (
                 <Video
                     source={{ uri: exercise.video_url }}
@@ -60,7 +59,6 @@ const ExerciseVideo = () => {
                 <Text style={styles.error}>No video available</Text>
             )}
 
-            {/* Language Toggle */}
             <View style={styles.toggleContainer}>
                 <Text style={styles.toggleLabel}>EN</Text>
                 <Switch
@@ -72,7 +70,6 @@ const ExerciseVideo = () => {
                 <Text style={styles.toggleLabel}>HI</Text>
             </View>
 
-            {/* Instructions */}
             <View style={styles.instructionsContainer}>
                 <Text style={styles.instructionsTitle}>Step-by-Step Instructions</Text>
                 {language === "english"
