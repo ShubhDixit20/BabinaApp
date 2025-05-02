@@ -4,14 +4,14 @@ import { View, Text, StyleSheet, Image } from 'react-native';
 export default function SplashScreen({ navigation }) {
   useEffect(() => {
     setTimeout(() => {
-      navigation.replace('GoalsScreen');
-    }, 500); // Splash screen duration
+      navigation.replace('PainTrackerNew');
+    }, 100); // Splash screen duration
   }, [navigation]);
 
   return (
     <View style={styles.container}>
       <Image
-        source={require('../assets/logo.jpg')} // Add your logo image here
+        source={require('../assets/splashscreen01.png')} // Add your logo image here
         style={styles.logo}
       />
       <Text style={styles.text}>Welcome to HealthTracker</Text>
@@ -24,16 +24,16 @@ const styles = StyleSheet.create({
     flex: 1,
     justifyContent: 'center',
     alignItems: 'center',
-    backgroundColor: '#1d3652',
+    backgroundColor: '#efe0e0',
   },
   logo: {
-    width: 120,
-    height: 120,
+    width: 360,
+    height: 360,
     marginBottom: 20,
   },
   text: {
     fontSize: 24,
     fontWeight: 'bold',
-    color: '#fff',
+    color: '#000',
   },
 });

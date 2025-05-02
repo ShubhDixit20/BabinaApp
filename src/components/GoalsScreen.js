@@ -194,12 +194,6 @@ const GoalsScreen = ({ navigation }) => {
         { title: 'Psychological Support' },
       ],
     },
-    // {
-    //   id: '1',
-    //   title: 'My Goals',
-    //   color: '#3A92F0',
-    //   subItems: [],
-    // },
     {
       id: '1',
       title: 'Pain Tracker',

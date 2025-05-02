@@ -5,32 +5,32 @@ import { View, Text, StyleSheet, TouchableOpacity } from 'react-native';
 export default function Exercises({ navigation }) {
   return (
     <View style={styles.container}>
-      <TouchableOpacity 
-        style={styles.card} 
+      <TouchableOpacity
+        style={styles.card}
         onPress={() => navigation.navigate('VideoWithDescription')}
       >
         <Text style={styles.cardText}>1. Loosening</Text>
       </TouchableOpacity>
-      <TouchableOpacity 
-        style={styles.card} 
+      <TouchableOpacity
+        style={styles.card}
         onPress={() => navigation.navigate('Diaphragmatic')}
       >
         <Text style={styles.cardText}>2. Diaphragmatic</Text>
       </TouchableOpacity>
-      <TouchableOpacity 
-        style={styles.card} 
+      <TouchableOpacity
+        style={styles.card}
         onPress={() => navigation.navigate('SingleKnee')}
       >
         <Text style={styles.cardText}>3. Single Knee to Chest</Text>
       </TouchableOpacity>
-      <TouchableOpacity 
-        style={styles.card} 
+      <TouchableOpacity
+        style={styles.card}
         onPress={() => navigation.navigate('DoubleKnee')}
       >
         <Text style={styles.cardText}>4. Double knee to chest</Text>
       </TouchableOpacity>
-      <TouchableOpacity 
-        style={styles.card} 
+      <TouchableOpacity
+        style={styles.card}
         onPress={() => navigation.navigate('SpinalRotation')}
       >
         <Text style={styles.cardText}>5. Spinal rotation</Text>

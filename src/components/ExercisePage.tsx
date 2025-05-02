@@ -17,17 +17,21 @@ const ExercisePage = () => {
         <View style={{ flex: 1 }}>
 
             <View style={{ flex: 0, flexDirection: 'column', backgroundColor: 'transparent' }}>
+
                 <View style={{ flex: 0, flexDirection: 'row', justifyContent: 'space-between', marginTop: 20, marginLeft: 15, marginRight: 15 }}>
                     <TouchableOpacity onPress={() => navigation.goBack()}>
                         <CircleArrowLeft color="black" size={40} />
                     </TouchableOpacity>
+
                     <View style={{ flex: 1, alignItems: 'center', backgroundColor: 'transparent', justifyContent: 'center' }}>
                         <Text style={{ color: 'green', fontSize: 15 }}>Health tracker app</Text>
                     </View>
+
                     <TouchableOpacity>
                         <UserCircle color="black" size={40} />
                     </TouchableOpacity>
                 </View>
+
                 <View>
                     <Text style={{ fontSize: 40, fontWeight: 'bold', color: 'grey', margin: 15 }}>Exercises</Text>
                 </View>
