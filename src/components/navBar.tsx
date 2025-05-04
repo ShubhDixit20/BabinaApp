@@ -17,7 +17,7 @@ const NavBar = () => {
             overflow: 'hidden', zIndex: 20, position: 'absolute', bottom: 0, left: 0,
             right: 0, justifyContent: 'center', alignItems: 'center'
         }}>
-            <TouchableOpacity onPress={navigation.navigate('PainTrack')}>
+            <TouchableOpacity onPress={() => navigation.navigate("PainTrack")}>
                 <View style={{ flexDirection: 'column', alignItems: 'center', margin: 20 }}>
                     <AudioWaveform color={'black'} size={24} />
                     <Text style={{ color: 'black', fontWeight: 'bold' }}>Pain Tracker</Text>
@@ -30,7 +30,7 @@ const NavBar = () => {
                     <Text style={{ color: 'black', fontWeight: 'bold' }}>Rewards</Text>
                 </View>
             </TouchableOpacity>
-        </View>
+        </View >
     )
 }
 

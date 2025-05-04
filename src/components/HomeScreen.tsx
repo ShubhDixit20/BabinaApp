@@ -11,7 +11,7 @@ import { PermissionsAndroid } from 'react-native';
 const height = Dimensions.get('window').height;
 const width = Dimensions.get('window').width;
 
-const PainTrackerNew = () => {
+const HomeScreen = () => {
 
     const navigation = useNavigation();
     const nav = () => {
@@ -71,11 +71,8 @@ const PainTrackerNew = () => {
     return (
         <View style={{ flex: 1, position: 'relative' }}>
             <View style={{ flex: 0, flexDirection: 'row', justifyContent: 'space-between', marginTop: 20, marginLeft: 15, marginRight: 15 }}>
-                <TouchableOpacity onPress={() => navigation.goBack()}>
-                    <CircleArrowLeft color="black" size={40} />
-                </TouchableOpacity>
-                <View style={{ flex: 1, alignItems: 'center', backgroundColor: 'transparent', justifyContent: 'center' }}>
-                    <Text style={{ color: 'green', fontSize: 15 }}>Health tracker app</Text>
+                <View style={{ flex: 0, alignItems: 'center', backgroundColor: 'transparent', justifyContent: 'center' }}>
+                    <Text style={{ color: 'green', fontSize: 30, fontWeight: 'bold', marginLeft: 7 }}>Health Tracker App</Text>
                 </View>
                 <TouchableOpacity>
                     <UserCircle color="black" size={40} />
@@ -84,7 +81,7 @@ const PainTrackerNew = () => {
 
             <View style={{ flex: 0, flexDirection: 'column', marginLeft: 20, marginTop: 15 }}>
                 <Text style={{ flex: 0, color: 'grey', fontSize: 22, fontWeight: 'bold' }}>Good Morning,</Text>
-                <Text style={{ flex: 0, color: 'green', fontSize: 35, fontWeight: 'bold' }}>Shubham</Text>
+                <Text style={{ flex: 0, color: 'green', fontSize: 35, fontWeight: 'bold' }}>Shubham Dixit</Text>
             </View>
 
             <ScrollView style={{ backgroundColor: 'transparent', flex: 1, margin: 10, overflow: 'scroll' }}>
@@ -100,4 +97,4 @@ const PainTrackerNew = () => {
     )
 }
 
-export default PainTrackerNew
+export default HomeScreen;

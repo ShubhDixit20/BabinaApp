@@ -1,12 +1,12 @@
 import React from 'react'
-import { View } from 'react-native'
-import SemiCircleProgressBar from "react-progressbar-semicircle";
+import { View, SafeAreaView } from 'react-native'
+import InteractiveSemiCircle from './SemiCircleProgressBar';
 
 const PainTrackerNew = () => {
     return (
-        <View>
-            <SemiCircleProgressBar percentage={33} showPercentValue />;
-        </View>
+        <SafeAreaView>
+            <InteractiveSemiCircle />
+        </SafeAreaView>
     )
 }
 

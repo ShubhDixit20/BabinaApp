@@ -4,7 +4,7 @@ import { View, Text, StyleSheet, Image } from 'react-native';
 export default function SplashScreen({ navigation }) {
   useEffect(() => {
     setTimeout(() => {
-      navigation.replace('PainTrackerNew');
+      navigation.replace('HomeScreen');
     }, 100); // Splash screen duration
   }, [navigation]);
 

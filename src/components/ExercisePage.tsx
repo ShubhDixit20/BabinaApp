@@ -37,7 +37,7 @@ const ExercisePage = () => {
                 </View>
             </View>
 
-            <ScrollView style={{ flex: 1, backgroundColor: 'transparent', marginBottom: 20 }}>
+            <ScrollView style={{ flex: 1, backgroundColor: 'transparent', marginBottom: 80 }}>
 
                 {menuItems?.map((item, idex) => {
                     console.log('here is the item: ', item)
