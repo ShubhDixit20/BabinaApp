@@ -72,19 +72,14 @@ const HomeScreen = () => {
         <View style={{ flex: 1, position: 'relative' }}>
             <View style={{ flex: 0, flexDirection: 'row', justifyContent: 'space-between', marginTop: 20, marginLeft: 15, marginRight: 15 }}>
                 <View style={{ flex: 0, alignItems: 'center', backgroundColor: 'transparent', justifyContent: 'center' }}>
-                    <Text style={{ color: 'green', fontSize: 30, fontWeight: 'bold', marginLeft: 7 }}>Health Tracker App</Text>
+                    <Text style={{ color: 'grey', fontSize: 15, fontWeight: 'bold', marginLeft: 7 }}>Health Tracker App</Text>
                 </View>
                 <TouchableOpacity>
-                    <UserCircle color="black" size={40} />
+                    <UserCircle color="black" size={30} />
                 </TouchableOpacity>
             </View>
 
-            <View style={{ flex: 0, flexDirection: 'column', marginLeft: 20, marginTop: 15 }}>
-                <Text style={{ flex: 0, color: 'grey', fontSize: 22, fontWeight: 'bold' }}>Good Morning,</Text>
-                <Text style={{ flex: 0, color: 'green', fontSize: 35, fontWeight: 'bold' }}>Shubham Dixit</Text>
-            </View>
-
-            <ScrollView style={{ backgroundColor: 'transparent', flex: 1, margin: 10, overflow: 'scroll' }}>
+            <ScrollView style={{ backgroundColor: 'transparent', flex: 1, margin: 10, overflow: 'scroll', marginTop: 30 }}>
                 <Cards title='Patient Education' iconName='SquareActivity' description='Test your flexibility with these exercises for greater mobility' onPress={handleDownloadPDF} />
                 <Cards title='Ergonomics & Postural Stability' iconName='SquareActivity' description='Test your flexibility with these exercises for greater mobility' />
                 <Cards title='Exercises' iconName='SquareActivity' description='Test your flexibility with these exercises for greater mobility' onPress={nav} />

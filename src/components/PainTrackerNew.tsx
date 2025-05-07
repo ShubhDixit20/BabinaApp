@@ -1,12 +1,12 @@
 import React from 'react'
-import { View, SafeAreaView } from 'react-native'
+import { View, Text } from 'react-native'
 import InteractiveSemiCircle from './SemiCircleProgressBar';
 
 const PainTrackerNew = () => {
     return (
-        <SafeAreaView>
-            <InteractiveSemiCircle />
-        </SafeAreaView>
+        <View>
+            <Text>Hello</Text>
+        </View>
     )
 }
 

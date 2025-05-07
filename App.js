@@ -12,6 +12,7 @@ import ExerciseVideo from './src/components/exercise';
 import ExercisePage from './src/components/ExercisePage';
 import PainTrackerNew from './src/components/PainTrackerNew';
 import HomeScreen from './src/components/HomeScreen';
+import Test from './src/components/Test';
 
 const Stack = createStackNavigator();
 
@@ -47,6 +48,7 @@ export default function App() {
         <Stack.Screen name="ExerciseVideo" component={ExerciseVideo} options={{ headerShown: false }} />
         <Stack.Screen name="ExercisePage" component={ExercisePage} options={{ headerShown: false }} />
         <Stack.Screen name="PainTrack" component={PainTrackerNew} options={{ headerShown: false }} />
+        <Stack.Screen name="test" component={Test} options={{ headerShown: false }} />
       </Stack.Navigator>
     </NavigationContainer>
   );

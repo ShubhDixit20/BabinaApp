@@ -21,7 +21,7 @@ const Cards = ({ title, iconName, description, onPress }: props) => {
         <TouchableOpacity style={{ backgroundColor: 'transparent', width: '100%' }} onPress={onPress}>
             <View style={{
                 flexDirection: 'column', backgroundColor: '#efe0e0', height: height * 0.14, borderRadius: 20,
-                overflow: 'hidden', marginBottom: 5
+                overflow: 'hidden', marginBottom: 10
             }}>
                 <View style={{ flex: 1, justifyContent: 'flex-start', margin: 10, alignItems: 'flex-end' }}>
                     <Icon name={iconName || 'ArrowLeft'} color={"black"} size={40} />
