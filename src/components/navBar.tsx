@@ -13,7 +13,7 @@ const NavBar = () => {
 
     return (
         <View style={{
-            flex: 0, flexDirection: 'row', backgroundColor: '#393E46', height: 90,
+            flex: 0, flexDirection: 'row', backgroundColor: '#35355e', height: 90,
             overflow: 'hidden', zIndex: 20, position: 'absolute', bottom: 0, left: 0,
             right: 0, justifyContent: 'center', alignItems: 'center'
         }}>

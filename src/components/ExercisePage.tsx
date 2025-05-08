@@ -24,7 +24,7 @@ const ExercisePage = () => {
                     </TouchableOpacity>
 
                     <View style={{ flex: 1, alignItems: 'center', backgroundColor: 'transparent', justifyContent: 'center' }}>
-                        <Text style={{ color: 'green', fontSize: 15 }}>Health tracker app</Text>
+                        <Text style={{ color: 'green', fontSize: 15 }}>Health Track</Text>
                     </View>
 
                     <TouchableOpacity>

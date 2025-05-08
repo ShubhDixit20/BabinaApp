@@ -69,10 +69,13 @@ const HomeScreen = () => {
     };
 
     return (
-        <View style={{ flex: 1, position: 'relative' }}>
-            <View style={{ flex: 0, flexDirection: 'row', justifyContent: 'space-between', marginTop: 20, marginLeft: 15, marginRight: 15 }}>
+        <View style={{ flex: 1, position: 'relative', backgroundColor: 'transparent' }}>
+            <View style={{ flex: 0, flexDirection: 'row', alignItems: 'center', justifyContent: 'space-between', marginTop: 20, marginLeft: 15, marginRight: 15 }}>
+                <TouchableOpacity onPress={() => navigation.goBack()}>
+                    <CircleArrowLeft color="black" size={40} />
+                </TouchableOpacity>
                 <View style={{ flex: 0, alignItems: 'center', backgroundColor: 'transparent', justifyContent: 'center' }}>
-                    <Text style={{ color: 'grey', fontSize: 15, fontWeight: 'bold', marginLeft: 7 }}>Health Tracker App</Text>
+                    <Text style={{ color: 'black', fontSize: 20, fontWeight: 'bold', marginLeft: 7 }}>Health Tracker App</Text>
                 </View>
                 <TouchableOpacity>
                     <UserCircle color="black" size={30} />

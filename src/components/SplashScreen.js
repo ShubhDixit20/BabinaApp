@@ -1,39 +1,87 @@
-import React, { useEffect } from 'react';
-import { View, Text, StyleSheet, Image } from 'react-native';
+import React from 'react';
+import { View, Text, Image, TouchableOpacity, Dimensions, SafeAreaView } from 'react-native';
 
-export default function SplashScreen({ navigation }) {
-  useEffect(() => {
-    setTimeout(() => {
-      navigation.replace('HomeScreen');
-    }, 100); // Splash screen duration
-  }, [navigation]);
+const { width, height } = Dimensions.get('window');
 
+const SplashScreen = ({ navigation }) => {
   return (
-    <View style={styles.container}>
-      <Image
-        source={require('../assets/splashscreen01.png')} // Add your logo image here
-        style={styles.logo}
-      />
-      <Text style={styles.text}>Welcome to HealthTracker</Text>
-    </View>
-  );
-}
+    <SafeAreaView style={{
+      flex: 1,
+      backgroundColor: '#6a6a85',
+      alignItems: 'center',
+      justifyContent: 'space-between',
+      paddingVertical: height * 0.05,
+    }}>
 
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    justifyContent: 'center',
-    alignItems: 'center',
-    backgroundColor: '#efe0e0',
-  },
-  logo: {
-    width: 360,
-    height: 360,
-    marginBottom: 20,
-  },
-  text: {
-    fontSize: 24,
-    fontWeight: 'bold',
-    color: '#000',
-  },
-});
+      <Text style={{
+        color: 'white',
+        fontSize: 45,
+        fontWeight: 'bold',
+        textAlign: 'center',
+      }}>
+        HealthTrack{'\n'}
+        <View>
+          <Text style={{ color: 'white', fontSize: 15 }}>-By Dr.Babina</Text>
+        </View>
+      </Text>
+
+      <Image
+        source={require('../assets/splashscreen01.png')}
+        resizeMode="contain"
+        style={{
+          width: width * 0.8,
+          height: height * 0.3,
+        }}
+      />
+
+      <View style={{
+        alignItems: 'center',
+        marginTop: height * 0.05,
+      }}>
+
+        <Text style={{
+          color: 'white',
+          fontSize: 40,
+          fontWeight: 'bold',
+          textAlign: 'center',
+        }}>Track your</Text>
+
+        <Text style={{
+          color: 'white',
+          fontSize: 40,
+          fontWeight: 'bold',
+          textAlign: 'center',
+        }}>Health Journey</Text>
+
+        <Text style={{
+          color: 'white',
+          fontSize: 40,
+          fontWeight: 'bold',
+          textAlign: 'center',
+        }}>with ease</Text>
+
+      </View>
+
+      <TouchableOpacity
+        style={{
+          width: '90%',
+          height: height * 0.08,
+          borderRadius: 30,
+          backgroundColor: '#35355e',
+          justifyContent: 'center',
+          alignItems: 'center',
+          marginBottom: height * 0.02,
+        }}
+        onPress={() => navigation.navigate('HomeScreen')}
+      >
+        <Text style={{
+          fontSize: 24,
+          color: 'white',
+          fontWeight: 'bold',
+        }}>GET STARTED</Text>
+      </TouchableOpacity>
+    </SafeAreaView>
+  );
+};
+
+export default SplashScreen;

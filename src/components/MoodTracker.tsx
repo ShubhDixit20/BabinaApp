@@ -167,20 +167,24 @@ export default function PainSelector() {
                                 },
                             ],
                         }}
-                        width={width - 32}
-                        height={350}
+                        width={width - 50}
+                        height={270}
                         chartConfig={{
-                            backgroundGradientFrom: '#222',
-                            backgroundGradientTo: '#444',
+                            backgroundGradientFrom: '',
+                            backgroundGradientTo: '#fff',
                             decimalPlaces: 0,
-                            color: (opacity = 1) => `rgba(255, 255, 255, ${opacity})`,
-                            labelColor: () => '#fff',
+                            color: (opacity = 1) => `rgba(0, 0, 0, ${opacity})`,  // black line and points
+                            labelColor: () => '#000',  // black axis labels
                             propsForDots: {
                                 r: '4',
                                 strokeWidth: '2',
                                 stroke: '#00ffcc',
                             },
+                            propsForVerticalLabels: {
+                                rotation: '-45',
+                            },
                         }}
+                        formatXLabel={(label) => `${label}\n`}  // This creates space for rotation visually
                         bezier
                         style={{
                             marginVertical: 16,
@@ -191,6 +195,7 @@ export default function PainSelector() {
                     <Text style={styles.noData}>No pain data recorded yet.</Text>
                 )}
             </View>
+
         </View>
     );
 }

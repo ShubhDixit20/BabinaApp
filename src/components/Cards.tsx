@@ -20,15 +20,15 @@ const Cards = ({ title, iconName, description, onPress }: props) => {
     return (
         <TouchableOpacity style={{ backgroundColor: 'transparent', width: '100%' }} onPress={onPress}>
             <View style={{
-                flexDirection: 'column', backgroundColor: '#efe0e0', height: height * 0.14, borderRadius: 20,
+                flexDirection: 'column', backgroundColor: '#6a6a85', height: height * 0.14, borderRadius: 20,
                 overflow: 'hidden', marginBottom: 10
             }}>
                 <View style={{ flex: 1, justifyContent: 'flex-start', margin: 10, alignItems: 'flex-end' }}>
-                    <Icon name={iconName || 'ArrowLeft'} color={"black"} size={40} />
+                    <Icon name={iconName || 'ArrowLeft'} color={"white"} size={40} />
                 </View>
                 <View style={{ flexDirection: 'column', marginLeft: 7, backgroundColor: 'transparent', bottom: 30 }}>
-                    <Text style={{ color: 'black', fontSize: 20, fontWeight: 'bold' }}>{title}</Text>
-                    <Text style={{ color: 'grey', fontSize: 14 }}>{description}</Text>
+                    <Text style={{ color: 'white', fontSize: 20, fontWeight: 'bold' }}>{title}</Text>
+                    <Text style={{ color: 'white', fontSize: 14 }}>{description}</Text>
                 </View>
             </View>
         </TouchableOpacity>
